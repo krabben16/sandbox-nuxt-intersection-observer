@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import images from '~/tools/list.js'
+import images from '~/imageList.js'
 
 export default defineComponent({
   setup() {

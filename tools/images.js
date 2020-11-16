@@ -16,36 +16,40 @@ class ImageReader {
   }
 }
 
-const cwd = process.cwd()
-const READ_DIR = path.join(cwd, '../static/images/')
-const OUTPUT_FILE = path.join(cwd, 'list.js')
+function main() {
+  const cwd = process.cwd()
+  const READ_DIR = path.join(cwd, '../static/images/')
+  const OUTPUT_FILE = path.join(cwd, '../imageList.js')
 
-console.log('cwd:', cwd)
+  console.log('cwd', cwd)
 
-const ir = new ImageReader()
-const images = ir.readDir(READ_DIR)
+  const ir = new ImageReader()
+  const images = ir.readDir(READ_DIR)
 
-const output = []
+  const output = []
 
-images.forEach(i => {
-  if (i.indexOf('dummy') > -1) {
-    return
-  }
+  images.forEach(i => {
+    if (i.indexOf('dummy') > -1) {
+      return
+    }
 
-  const imagePath = path.join(READ_DIR, i)
-  console.info(imagePath)
+    const imagePath = path.join(READ_DIR, i)
+    console.info(imagePath)
 
-  const dimensions = imageSize(imagePath)
-  console.info(dimensions)
+    const dimensions = imageSize(imagePath)
+    console.info(dimensions)
 
-  output.push({
-    src: '/images/' + i,
-    height: dimensions.height,
-    width: dimensions.width,
-    alt: i,
+    output.push({
+      src: '/images/' + i,
+      height: dimensions.height,
+      width: dimensions.width,
+      alt: i,
+    })
   })
-})
 
-const data = 'export default ' + JSON.stringify(output)
+  const data = 'export default ' + JSON.stringify(output)
 
-ir.writeFile(OUTPUT_FILE, data)
+  ir.writeFile(OUTPUT_FILE, data)
+}
+
+main()
