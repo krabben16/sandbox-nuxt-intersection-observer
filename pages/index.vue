@@ -4,7 +4,7 @@
       <h1 class="title">test-nuxt-intersection-observer</h1>
       <nuxt-link to="/about"><h2 class="subtitle">/about</h2></nuxt-link>
       <template v-for="(v, k) in images">
-       <LazyImage :key="k" :src="v.src" :height="v.height" :width="v.width" :alt="v.alt" />
+        <LazyImage :key="k" :src="v.src" :height="v.height" :width="v.width" :alt="v.alt" />
       </template>
     </div>
   </div>
