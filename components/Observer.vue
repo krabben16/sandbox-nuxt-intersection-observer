@@ -1,5 +1,4 @@
 <script lang="ts">
-import Vue from 'vue'
 import { defineComponent, onMounted, onUnmounted, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
