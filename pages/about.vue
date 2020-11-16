@@ -3,6 +3,7 @@
     <div>
       <h1 class="title">test-nuxt-intersection-observer</h1>
       <nuxt-link to="/"><h2 class="subtitle">/</h2></nuxt-link>
+      <Observer />
     </div>
   </div>
 </template>
