@@ -18,7 +18,7 @@ class ImageReader {
 
 function main() {
   const cwd = process.cwd()
-  const READ_DIR = path.join(cwd, '../static/images/')
+  const READ_DIR = path.join(cwd, '../static/images/sample/')
   const OUTPUT_FILE = path.join(cwd, '../imageList.js')
 
   console.log('cwd', cwd)
@@ -29,10 +29,6 @@ function main() {
   const output = []
 
   images.forEach(i => {
-    if (i.indexOf('dummy') > -1) {
-      return
-    }
-
     const imagePath = path.join(READ_DIR, i)
     console.info(imagePath)
 
@@ -40,7 +36,7 @@ function main() {
     console.info(dimensions)
 
     output.push({
-      src: '/images/' + i,
+      src: '/images/sample/' + i,
       height: dimensions.height,
       width: dimensions.width,
       alt: i,
