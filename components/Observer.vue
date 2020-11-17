@@ -1,5 +1,10 @@
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -23,7 +28,7 @@ export default defineComponent({
     const observerRef = ref<IntersectionObserver>()
 
     onMounted(() => {
-      if (!slots || Object.keys(slots).indexOf('default') === -1) {
+      if (!slots || !Object.keys(slots).includes('default')) {
         return
       }
 
@@ -32,7 +37,7 @@ export default defineComponent({
         return
       }
 
-      const callback = function(entries: IntersectionObserverEntry[]) {
+      const callback = function (entries: IntersectionObserverEntry[]) {
         const entry = entries[0]
         if (!entry.isIntersecting) {
           emit('leave', [entry])
@@ -59,7 +64,7 @@ export default defineComponent({
     })
   },
   render(createElement) {
-    if (!this.$slots || Object.keys(this.$slots).indexOf('default') === -1) {
+    if (!this.$slots || !Object.keys(this.$slots).includes('default')) {
       return createElement('div')
     }
 

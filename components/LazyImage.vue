@@ -1,6 +1,19 @@
 <template>
-  <Observer :threshold="[0.2, 0.8]" @enter="onEnter" @leave="onLeave" @change="onChange">
-    <img ref="lazyImageRef" src="/images/dummy.png" :data-src="src" :height="height" :width="width" :alt="alt" :title="title" />
+  <Observer
+    :threshold="[0.2, 0.8]"
+    @enter="onEnter"
+    @leave="onLeave"
+    @change="onChange"
+  >
+    <img
+      ref="lazyImageRef"
+      src="/images/dummy.png"
+      :data-src="src"
+      :height="height"
+      :width="width"
+      :alt="alt"
+      :title="title"
+    />
   </Observer>
 </template>
 
@@ -15,11 +28,11 @@ export default defineComponent({
       required: true,
     },
     height: {
-      type: Number,
+      type: String,
       required: false,
     },
     width: {
-      type: Number,
+      type: String,
       required: false,
     },
     alt: {
@@ -52,7 +65,7 @@ export default defineComponent({
     },
     onChange() {
       console.log('onChange')
-    }
-  }
+    },
+  },
 })
 </script>
