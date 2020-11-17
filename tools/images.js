@@ -29,7 +29,7 @@ function main() {
 
   const output = []
 
-  images.forEach(i => {
+  images.forEach((i) => {
     if (output.length === MAX_IMAGE_COUNT) {
       return
     }
@@ -42,8 +42,8 @@ function main() {
 
     output.push({
       src: '/images/sample/' + i,
-      height: dimensions.height,
-      width: dimensions.width,
+      height: dimensions.height.toString(),
+      width: dimensions.width.toString(),
       alt: i,
     })
   })
