@@ -20,6 +20,7 @@ function main() {
   const cwd = process.cwd()
   const READ_DIR = path.join(cwd, '../static/images/sample/')
   const OUTPUT_FILE = path.join(cwd, '../imageList.js')
+  const MAX_IMAGE_COUNT = 30
 
   console.log('cwd', cwd)
 
@@ -29,6 +30,10 @@ function main() {
   const output = []
 
   images.forEach(i => {
+    if (output.length === MAX_IMAGE_COUNT) {
+      return
+    }
+
     const imagePath = path.join(READ_DIR, i)
     console.info(imagePath)
 
