@@ -65,7 +65,7 @@ export default defineComponent({
 
     const nodeList = this.$slots.default
     if (!nodeList || nodeList.length === 0) {
-      return createElement('dev')
+      return createElement('div')
     }
 
     return nodeList[0]
