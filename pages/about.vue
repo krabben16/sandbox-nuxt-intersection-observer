@@ -1,3 +1,0 @@
-<template>
-  <Observer />
-</template>
