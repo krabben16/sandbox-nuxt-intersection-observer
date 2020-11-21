@@ -24,10 +24,6 @@ export default {
         rel: 'stylesheet',
         href: '/css/album.css',
       },
-      {
-        rel: 'stylesheet',
-        href: '/css/trim.css',
-      },
     ],
   },
 
@@ -48,9 +44,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    '@nuxt/image',
-  ],
+  modules: ['@nuxt/image'],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
