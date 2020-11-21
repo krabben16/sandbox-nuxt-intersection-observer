@@ -3,6 +3,7 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>test-nuxt-intersection-observer</h1>
+        <SubTitle />
         <Link :path="path" />
       </div>
     </section>
