@@ -14,7 +14,7 @@ export default defineComponent({
       default: () => [0.2],
     },
     root: {
-      type: Object as () => HTMLElement,
+      type: Object as () => Element,
       required: false,
       default: () => null,
     },
