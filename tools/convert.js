@@ -14,20 +14,20 @@ class FsWrapper {
 
 class SharpWrapper {
   constructor() {
-    this.width = 348
-    this.height = 225
+    // 16:9
+    this.width = 320
+    this.height = 180
   }
 
-  convert(writeDir, readDir, imageName) {
+  convert(readDir, writeDir, imageName) {
     const imagePath = path.join(readDir, imageName)
+
+    const fileName = imageName.split('_')[0] + '.jpg'
+    const filePath = path.join(writeDir, fileName)
 
     sharp(imagePath)
       .resize(this.width, this.height, { fit: 'cover' })
-      .toFile(path.join(writeDir, this.createImageName(imageName)))
-  }
-
-  createImageName(imageName) {
-    return imageName.split('_')[0] + '_' + this.width + '.jpg'
+      .toFile(filePath)
   }
 }
 
@@ -35,15 +35,15 @@ function main() {
   const cwd = process.cwd()
   console.log('cwd', cwd)
 
-  const WRITE_DIR = path.join(cwd, '../static/images/sharp/')
   const READ_DIR = path.join(cwd, '../static/images/sample/')
+  const WRITE_DIR = path.join(cwd, '../static/images/sharp/')
 
   const fw = new FsWrapper()
   const imageNameList = fw.readDir(READ_DIR)
 
   imageNameList.forEach((imageName) => {
     const sw = new SharpWrapper()
-    sw.convert(WRITE_DIR, READ_DIR, imageName)
+    sw.convert(READ_DIR, WRITE_DIR, imageName)
   })
 }
 

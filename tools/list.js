@@ -18,7 +18,7 @@ class FsWrapper {
 
 class ListSort {
   compare(a, b) {
-    const re = new RegExp('^lighthouse-(\\d+?)_(\\d+?)\\.(\\w+?)$')
+    const re = new RegExp('^lighthouse-(\\d+?)\\.(\\w+?)$')
 
     const result1 = re.exec(a)
     const result2 = re.exec(b)
