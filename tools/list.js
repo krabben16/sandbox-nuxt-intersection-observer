@@ -36,7 +36,7 @@ function main() {
   const cwd = process.cwd()
   console.log('cwd', cwd)
 
-  const READ_DIR = path.join(cwd, '../static/images/sample/')
+  const READ_DIR = path.join(cwd, '../static/images/sharp/')
   const OUTPUT_FILE = path.join(cwd, '../imageList.js')
   const MAX_IMAGE_COUNT = 30
 
@@ -56,7 +56,7 @@ function main() {
     const dimensions = imageSize(imagePath)
 
     output.push({
-      src: '/images/sample/' + imageName,
+      src: '/images/sharp/' + imageName,
       height: dimensions.height.toString(),
       width: dimensions.width.toString(),
       alt: imageName,
