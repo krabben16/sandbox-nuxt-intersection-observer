@@ -3,7 +3,7 @@
     <nuxt-link
       to="/"
       class="btn my-2"
-      :class="{ 'btn-primary': path === '/', 'btn-secondary': path !== '/' }"
+      :class="{ 'btn-primary': isRoot, 'btn-secondary': !isRoot }"
     >
       No lazy loading
     </nuxt-link>
@@ -11,8 +11,8 @@
       to="/observer"
       class="btn my-2"
       :class="{
-        'btn-primary': path === '/observer',
-        'btn-secondary': path !== '/observer',
+        'btn-primary': isObserver,
+        'btn-secondary': !isObserver,
       }"
     >
       Intersection Observer
@@ -21,8 +21,8 @@
       to="/image"
       class="btn my-2"
       :class="{
-        'btn-primary': path === '/image',
-        'btn-secondary': path !== '/image',
+        'btn-primary': isImage,
+        'btn-secondary': !isImage,
       }"
     >
       @nuxt/image
@@ -31,14 +31,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    path: {
-      type: String,
+    pageType: {
+      type: Number,
       required: true,
     },
+  },
+  setup(props) {
+    const { $pageType } = useContext()
+
+    return {
+      isRoot: computed(() => props.pageType === $pageType.root),
+      isObserver: computed(() => props.pageType === $pageType.observer),
+      isImage: computed(() => props.pageType === $pageType.image),
+    }
   },
 })
 </script>

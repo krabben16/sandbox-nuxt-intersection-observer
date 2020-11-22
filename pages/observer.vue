@@ -4,7 +4,7 @@
       <div class="container">
         <h1>test-nuxt-intersection-observer</h1>
         <SubTitle />
-        <Link :path="path" />
+        <Link :pageType="pageType" />
       </div>
     </section>
     <div class="album py-5 bg-light">
@@ -35,11 +35,11 @@ import images from '~/imageList.js'
 
 export default defineComponent({
   setup() {
-    const { route } = useContext()
+    const { $pageType } = useContext()
 
     return {
       images,
-      path: route.value.path,
+      pageType: $pageType.observer,
     }
   },
 })
