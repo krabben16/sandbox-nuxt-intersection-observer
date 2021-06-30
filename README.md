@@ -1,5 +1,3 @@
-# test-nuxt-intersection-observer
-
 ## Build Setup
 
 ```bash
